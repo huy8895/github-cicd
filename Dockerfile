@@ -1,12 +1,10 @@
-# syntax=docker/dockerfile:1
-
-FROM eclipse-temurin:17-jdk-jammy
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
+RUN chmod +x mvnw && ./mvnw dependency:resolve
 
 COPY src ./src
 
