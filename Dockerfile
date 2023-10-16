@@ -1,4 +1,13 @@
-FROM openjdk:11
-EXPOSE 8080
-ADD target/springboot-cicd-github.jar springboot-cicd-github.jar
-ENTRYPOINT ["java","-jar","/springboot-cicd-github.jar"]
+# syntax=docker/dockerfile:1
+
+FROM eclipse-temurin:17-jdk-jammy
+
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:resolve
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
