@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:${{ github.sha }}.substring(0,7)
