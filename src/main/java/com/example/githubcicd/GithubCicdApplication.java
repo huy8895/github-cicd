@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GithubCicdApplication {
 
-    @GetMapping("/welcome")
+    @GetMapping()
     public String welcome(){
         log.info("GithubCicdApplication welcome() called");
         return "welcome!";
