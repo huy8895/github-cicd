@@ -49,4 +49,11 @@
         <finalName>springboot-cicd-github</finalName>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages huy8895</name>
+            <url>https://maven.pkg.github.com/huy8895/github-cicd</url>
+        </repository>
+    </distributionManagement>
 </project>
