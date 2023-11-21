@@ -1,6 +1,8 @@
 package com.example.githubcicd;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.TestPackage;
+import org.example.TestPackageV2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,8 @@ public class GithubCicdApplication {
     }
 
     public static void main(String[] args) {
+        TestPackage.print();
+        TestPackageV2.print();
         SpringApplication.run(GithubCicdApplication.class, args);
     }
 

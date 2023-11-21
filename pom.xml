@@ -36,6 +36,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.huy8895</groupId>
+            <artifactId>github-package-java-maven</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -56,4 +61,10 @@
             <url>https://maven.pkg.github.com/huy8895/github-cicd</url>
         </repository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>
