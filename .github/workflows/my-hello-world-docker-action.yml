@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: huy8895/github-actions-docker-container@v1.0.1
+        uses: huy8895/github-actions-docker-container@1.0.1
         with:
           who-to-greet: 'Trinh van huy'
       # Use the output from the `hello` step
