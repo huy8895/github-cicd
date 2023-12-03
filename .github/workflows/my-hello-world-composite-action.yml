@@ -14,5 +14,5 @@ jobs:
         run: echo random-number ${{ steps.my-composite-action.outputs.random-number }}
         shell: bash
       - name: show commit-sha_short from my-composite-action
-        run: echo sha_short. ${{ env.sha_short }}
+        run: echo sha_short ${{ env.sha_short }}
         shell: bash
