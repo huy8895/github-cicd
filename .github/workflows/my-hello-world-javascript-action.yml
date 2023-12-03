@@ -1,3 +1,4 @@
+name: my-hello-world-javascript-action
 on: [push]
 
 jobs:
