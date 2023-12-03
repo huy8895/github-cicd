@@ -33,16 +33,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags:  ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:${{ steps.vars.outputs.sha_short }}, ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:latest
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Pull Docker image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:latest
-      - name: Run Docker image
-        run: docker run -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/demo-cicd-github:latest
-
