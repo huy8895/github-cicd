@@ -46,20 +46,29 @@ services:
     networks:
       - data-layer
 
-  oracle:
-    image: oracle/database:19.3.0-se2
-    container_name: oracle
-    restart: always
+  # Install Source MySQL DB and setup the Customer database
+  mysql-1:
+    container_name: source-database
+    image: mysql
     ports:
-      - '1521:1521'
+        - "3305:3306"
     environment:
-      - ORACLE_SID=ORCLCDB
-      - ORACLE_PDB=ORCLPDB1
-      - ORACLE_PWD=oracle
-    volumes:
-      - oracle_data:/opt/oracle/oradata
-    networks:
-      - data-layer
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: customerdb
+
+  # Install Target MySQL DB and setup the Customer database
+  mysql-2:
+    container_name: target-database
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: customerdb
 
 networks:
   data-layer:
